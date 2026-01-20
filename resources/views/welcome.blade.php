@@ -11,7 +11,7 @@
 
     <h1>Welcome to the Ninja Network</h1>
     <p>Click the button below to see the list of Ninjas</p>
-    <a href="Find Ninjas" class="btn">Find Ninjas</a>
+    <a href="/ninjas" class="btn">Find Ninjas</a>
 </body>
 
 </html>
