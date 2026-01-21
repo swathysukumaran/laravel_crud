@@ -12,4 +12,14 @@ class NinjaController extends Controller
         $ninjas = Ninja::orderBy('createdAt', 'desc')->get();
         return view('ninjas.index', ["ninjas" => $ninjas]);
     }
+    public function create()
+    {
+        return view('ninjas.create');
+    }
+
+    public function show($id)
+    {
+        $ninja = Ninja::findOrFail($id);
+        return view('ninjas.index', ["ninja" => $ninja]);
+    }
 }
