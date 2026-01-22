@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Dojo;
 
 class DojoSeeder extends Seeder
 {
@@ -12,6 +13,6 @@ class DojoSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Dojo::factory()->count(10)->create();
     }
 }
