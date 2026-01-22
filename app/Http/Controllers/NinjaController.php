@@ -20,6 +20,6 @@ class NinjaController extends Controller
     public function show($id)
     {
         $ninja = Ninja::findOrFail($id);
-        return view('ninjas.index', ["ninja" => $ninja]);
+        return view('ninjas.show', ["ninja" => $ninja]);
     }
 }
