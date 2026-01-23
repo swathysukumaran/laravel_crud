@@ -9,7 +9,7 @@ class NinjaController extends Controller
 {
     public function index()
     {
-        $ninjas = Ninja::orderBy('createdAt', 'desc')->paginate(10);
+        $ninjas = Ninja::with('dojo')->orderBy('createdAt', 'desc')->paginate(10);
         return view('ninjas.index', ["ninjas" => $ninjas]);
     }
     public function create()
@@ -19,7 +19,7 @@ class NinjaController extends Controller
 
     public function show($id)
     {
-        $ninja = Ninja::findOrFail($id);
+        $ninja = Ninja::with('dojo')->findOrFail($id);
         return view('ninjas.show', ["ninja" => $ninja]);
     }
 }
