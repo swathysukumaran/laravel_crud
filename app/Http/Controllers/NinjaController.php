@@ -35,4 +35,10 @@ class NinjaController extends Controller
         $ninja = Ninja::with('dojo')->findOrFail($id);
         return view('ninjas.show', ["ninja" => $ninja]);
     }
+    public function destroy($id)
+    {
+        $ninja = Ninja::findOrFail($id);
+        $ninja->delete();
+        return redirect()->route('ninjas.index');
+    }
 }
