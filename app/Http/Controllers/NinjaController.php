@@ -30,14 +30,13 @@ class NinjaController extends Controller
         Ninja::create($validated);
         return redirect()->route('ninjas.index')->with('success', 'Ninja Created!');
     }
-    public function show($id)
+    public function show(Ninja $ninja)
     {
-        $ninja = Ninja::with('dojo')->findOrFail($id);
+        $ninja->load('dojo');
         return view('ninjas.show', ["ninja" => $ninja]);
     }
-    public function destroy($id)
+    public function destroy(Ninja $ninja)
     {
-        $ninja = Ninja::findOrFail($id);
         $ninja->delete();
         return redirect()->route('ninjas.index')->with('success', 'Ninja Deleted!');
     }
